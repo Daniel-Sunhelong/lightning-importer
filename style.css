@@ -1,0 +1,506 @@
+#lightning-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 320px;
+  max-height: 92vh;
+  z-index: 2147483647;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #d8dee8;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#lightning-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: #0f172a;
+  flex-shrink: 0;
+}
+
+#lightning-header button {
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+}
+
+#lightning-header button:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+#lightning-body {
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#lightning-drop {
+  padding: 14px 10px;
+  text-align: center;
+  background: #f8fafc;
+  border: 1px dashed #94a3b8;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#lightning-drop.hover {
+  background: #ecfeff;
+  border-color: #0891b2;
+}
+
+.lightning-drop-title {
+  margin-bottom: 2px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+.lightning-drop-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.lightning-file-links {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.lightning-file-links label {
+  color: #0284c7;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lightning-file-links label:hover {
+  text-decoration: underline;
+}
+
+.lightning-sep {
+  color: #cbd5e1;
+}
+
+#lightning-file,
+#lightning-folder {
+  display: none;
+}
+
+.lightning-badge {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.lightning-badge.ready {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.lightning-badge.warning {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.lightning-supplement-btn {
+  background: #fff7ed !important;
+  color: #c2410c !important;
+  border: 1px solid #fdba74 !important;
+  font-size: 12px !important;
+  min-height: 30px !important;
+  padding: 4px 8px !important;
+}
+
+.lightning-supplement-btn:hover {
+  background: #ffedd5 !important;
+}
+
+#lightning-img-helper {
+  margin-top: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.lightning-img-helper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.lightning-text-btn {
+  background: transparent;
+  border: none;
+  color: #0284c7;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lightning-img-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.lightning-img-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.lightning-img-thumb-wrapper {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lightning-img-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: grab;
+}
+
+.lightning-img-missing {
+  font-size: 10px;
+  color: #dc2626;
+  text-align: center;
+}
+
+.lightning-img-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lightning-img-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lightning-img-sub {
+  font-size: 10px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lightning-btn-sm {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0369a1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.lightning-btn-sm:hover:not(:disabled) {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.lightning-btn-sm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lightning-btn {
+  display: block;
+  width: 100%;
+  min-height: 34px;
+  margin-top: 8px;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+
+.lightning-btn:hover {
+  background: #eef2f7;
+}
+
+.lightning-primary {
+  color: #ffffff;
+  background: #0f766e;
+  border-color: #0f766e;
+}
+
+.lightning-primary:hover {
+  background: #115e59;
+}
+
+.lightning-danger {
+  color: #ffffff;
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.lightning-danger:hover {
+  background: #991b1b;
+}
+
+#lightning-actions,
+#lightning-meta {
+  display: none;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+#lightning-actions .lightning-btn {
+  margin-top: 0;
+}
+
+#lightning-meta {
+  justify-content: space-between;
+  padding: 6px 10px;
+  color: #475569;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+#lightning-status {
+  min-height: 20px;
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+#lightning-status.success {
+  color: #047857;
+}
+
+#lightning-status.error {
+  color: #b91c1c;
+}
+
+#lightning-status.loading {
+  color: #0369a1;
+}
+
+#lightning-preview-modal,
+#lightning-settings-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.55);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  backdrop-filter: blur(2px);
+}
+
+#lightning-preview-box {
+  width: min(840px, calc(100vw - 40px));
+  max-height: min(800px, calc(100vh - 40px));
+  overflow: auto;
+  color: #0f172a;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+}
+
+#lightning-settings-box {
+  width: 380px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+}
+
+#lightning-preview-header,
+#lightning-settings-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lightning-preview-count {
+  font-size: 13px;
+  font-weight: 500;
+  color: #059669;
+  margin-left: 6px;
+}
+
+#lightning-preview-header button,
+#lightning-settings-header button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  background: #f1f5f9;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+}
+
+#lightning-preview-content {
+  padding: 22px 28px;
+  color: #111827;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 卡片形式排版（Blockquote Card 强化） */
+#lightning-preview-content blockquote {
+  margin: 14px 0;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-left: 4px solid #0284c7;
+  border-radius: 0 8px 8px 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.lightning-img-container {
+  text-align: center;
+  margin: 18px 0;
+}
+
+.lightning-content-img,
+#lightning-preview-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin: 12px auto;
+  display: block;
+}
+
+#lightning-preview-content pre {
+  overflow-x: auto;
+  border-radius: 6px;
+  background: #f1f5f9;
+  padding: 12px 16px;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+#lightning-preview-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+}
+
+#lightning-preview-content th,
+#lightning-preview-content td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+}
+
+.lightning-missing-placeholder {
+  margin: 16px 0;
+  padding: 10px 14px;
+  background: #fff7ed;
+  border: 1px dashed #fdba74;
+  border-radius: 8px;
+  color: #c2410c;
+  font-size: 13px;
+  text-align: center;
+}
+
+#lightning-preview-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 12px 18px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.lightning-setting-item {
+  margin: 12px 0 16px 0;
+}
+
+.lightning-setting-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.lightning-select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+}
+
+.lightning-select:focus {
+  border-color: #0284c7;
+}
+
+#lightning-settings-box label {
+  display: block;
+  margin: 10px 0;
+  font-size: 13px;
+  color: #334155;
+}

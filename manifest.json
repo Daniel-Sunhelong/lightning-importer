@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "闪电导入 (Lightning)",
+  "version": "1.1.0",
+  "description": "极速将 Markdown 与图文混排一键导入 X (Twitter) 长文编辑器。",
+  "permissions": ["clipboardRead", "clipboardWrite"],
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
